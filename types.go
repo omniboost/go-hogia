@@ -31,7 +31,8 @@ func (a Amount) String() string {
 		return ""
 	}
 
-	return strings.Replace(fmt.Sprint(float64(a)), ".", ",", -1)
+	s := fmt.Sprintf("%.2f", float64(a))
+	return strings.Replace(s, ".", ",", -1)
 }
 
 type Quantity int

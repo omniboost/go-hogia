@@ -26,27 +26,109 @@ func TestAccountingItemsFile(t *testing.T) {
 			Reserved:      nil,
 			InclVAT:       false,
 		},
-		AccountingItems: hogia.AccountingItems{{
-			Account: 1515,
-			Amount:  -44420.54,
-			// Quanttiy: 0,
-			// Dimension1: 0,
-			// Project: 0,
-			// Specification: "",
-			Text: "Avräkning reception",
-			// VATCode: nil,
-			// Dimensino2: 0,
-		}},
-		// BFO-rad	1515	-44420,54					Avräkning reception
-		// BFO-rad	1509	85432,00					FAKTURASTÄNGNING
-		// BFO-rad	1910	5057,00					Kontant
-		// BFO-rad	1912	300,00					BWR-poäng
-		// BFO-rad	1914	1196,00					FIT BW
-		// BFO-rad	1916	300,00					Fri natt (ej sas)
-		// BFO-rad	1583	47167,48					Eurocard/Master/VISA /SHB
-		// BFO-rad	1582	12239,00					KORTMANUELL & Restaurang
-		// BFO-rad	2420	-531,00					Förskott skuld
-		// BFO-rad	3009	-8083,00		102			Parkering
+		AccountingItems: hogia.AccountingItems{
+			{
+				Account: 1515,
+				Amount:  -44420.54,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "Avräkning reception",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1509,
+				Amount:  85432.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "FAKTURASTÄNGNING",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1910,
+				Amount:  5057.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "Kontant",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1912,
+				Amount:  300.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "BWR-poäng",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1914,
+				Amount:  1196.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "FIT BW",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1916,
+				Amount:  300.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "Fri natt (ej sas)",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1583,
+				Amount:  47167.48,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "Eurocard/Master/VISA /SHB",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 1582,
+				Amount:  12239.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "KORTMANUELL & Restaurang",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 2420,
+				Amount:  -531.00,
+				// Quanttiy: 0,
+				// Dimension1: 0,
+				// Project: 0,
+				// Specification: "",
+				Text: "Förskott skuld",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			}, {
+				Account: 3009,
+				Amount:  -8083.00,
+				// Quanttiy: 0,
+				Dimension1: 102,
+				// Project: 0,
+				// Specification: "",
+				Text: "Parkering",
+				// VATCode: nil,
+				// Dimensino2: 0,
+			},
+		},
 		// BFO-rad	3010	-60282,56		102			Logi
 		// BFO-rad	3011	-106,25		102			EM-Kaffe
 		// BFO-rad	3013	-16550,00		102			Frukost
@@ -68,6 +150,15 @@ func TestAccountingItemsFile(t *testing.T) {
 Datumformat	YYYY-MM-DD
 BFO	O	From PMS 	2018-09-06		-1
 BFO-rad	1515	-44420,54					Avräkning reception		
+BFO-rad	1509	85432,00					FAKTURASTÄNGNING		
+BFO-rad	1910	5057,00					Kontant		
+BFO-rad	1912	300,00					BWR-poäng		
+BFO-rad	1914	1196,00					FIT BW		
+BFO-rad	1916	300,00					Fri natt (ej sas)		
+BFO-rad	1583	47167,48					Eurocard/Master/VISA /SHB		
+BFO-rad	1582	12239,00					KORTMANUELL & Restaurang		
+BFO-rad	2420	-531,00					Förskott skuld		
+BFO-rad	3009	-8083,00		102			Parkering		
 BFO-slut
 `
 
