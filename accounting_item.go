@@ -1,5 +1,7 @@
 package hogia
 
+import "fmt"
+
 type AccountingItemsFile struct {
 	Header                Header
 	AccountingItemsHeader AccountingItemsHeader
@@ -40,7 +42,17 @@ func (f *AccountingItemsFile) MarshalCSV() ([][]string, error) {
 type AccountingItems []AccountingItem
 
 func (ii AccountingItems) MarshalCSV() ([][]string, error) {
-	return [][]string{}, nil
+	ss := [][]string{}
+
+	for _, i := range ii {
+		tmp, err := i.MarshalCSV()
+		if err != nil {
+			return ss, err
+		}
+		ss = append(ss, tmp...)
+	}
+
+	return ss, nil
 }
 
 type AccountingItemsHeader struct {
@@ -78,7 +90,7 @@ func (h AccountingItemsHeader) MarshalCSV() ([][]string, error) {
 	}, nil
 }
 
-type AccountingItemsFooter string
+type AccountingItemsFooter struct{}
 
 func (h *AccountingItemsFooter) MarshalCSV() ([][]string, error) {
 	return [][]string{
@@ -96,11 +108,11 @@ type AccountingItem struct {
 	// Mandatory
 	Account int
 	// Mandatory
-	Amount   float64
-	Quantity float64
+	Amount   Amount
+	Quantity Quantity
 	// 0–999999
-	Dimension1 int
-	Project    int
+	Dimension1 Dimension
+	Project    Project
 	// Length: 10
 	Specification string
 	// Length: 30
@@ -108,5 +120,22 @@ type AccountingItem struct {
 	// If excluded, the VAT code set on the account in Hogia will be used.
 	VATCode interface{}
 	// 0-999999
-	Dimension2 int
+	Dimension2 Dimension
+}
+
+func (i AccountingItem) MarshalCSV() ([][]string, error) {
+	return [][]string{
+		[]string{
+			"BFO-rad",
+			fmt.Sprint(i.Account),
+			i.Amount.String(),
+			i.Quantity.String(),
+			i.Dimension1.String(),
+			i.Project.String(),
+			i.Specification,
+			i.Text,
+			"",
+			i.Dimension2.String(),
+		},
+	}, nil
 }

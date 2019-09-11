@@ -1,6 +1,10 @@
 package hogia
 
-import "time"
+import (
+	"fmt"
+	"strings"
+	"time"
+)
 
 type Date struct {
 	time.Time
@@ -18,4 +22,44 @@ func (b IntBool) String() string {
 	}
 
 	return "-1"
+}
+
+type Amount float64
+
+func (a Amount) String() string {
+	if a == 0.0 {
+		return ""
+	}
+
+	return strings.Replace(fmt.Sprint(float64(a)), ".", ",", -1)
+}
+
+type Quantity int
+
+func (q Quantity) String() string {
+	if q == 0 {
+		return ""
+	}
+
+	return fmt.Sprint(int(q))
+}
+
+type Dimension int
+
+func (d Dimension) String() string {
+	if d == 0 {
+		return ""
+	}
+
+	return fmt.Sprint(int(d))
+}
+
+type Project int
+
+func (p Project) String() string {
+	if p == 0 {
+		return ""
+	}
+
+	return fmt.Sprint(int(p))
 }
