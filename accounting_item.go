@@ -2,14 +2,14 @@ package hogia
 
 import "fmt"
 
-type AccountingItemsFile struct {
+type AccountingItemsSection struct {
 	Header                Header
 	AccountingItemsHeader AccountingItemsHeader
 	AccountingItems
 	AccountingItemsFooter AccountingItemsFooter
 }
 
-func (f *AccountingItemsFile) MarshalCSV() ([][]string, error) {
+func (f *AccountingItemsSection) MarshalCSV() ([][]string, error) {
 	ss := [][]string{}
 
 	tmp, err := f.Header.MarshalCSV()

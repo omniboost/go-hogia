@@ -31,7 +31,16 @@ func (a Amount) String() string {
 		return ""
 	}
 
+	return a.Round2()
+}
+
+func (a Amount) Round2() string {
 	s := fmt.Sprintf("%.2f", float64(a))
+	return strings.Replace(s, ".", ",", -1)
+}
+
+func (a Amount) Round4() string {
+	s := fmt.Sprintf("%.4f", float64(a))
 	return strings.Replace(s, ".", ",", -1)
 }
 
@@ -63,4 +72,25 @@ func (p Project) String() string {
 	}
 
 	return fmt.Sprint(int(p))
+}
+
+type FloatOpt float64
+
+func (f FloatOpt) String() string {
+	if f == 0.0 {
+		return ""
+	}
+
+	s := fmt.Sprintf("%.4f", float64(f))
+	return strings.Replace(s, ".", ",", -1)
+}
+
+type IntOpt int
+
+func (i IntOpt) String() string {
+	if i == 0 {
+		return ""
+	}
+
+	return fmt.Sprint(int(i))
 }

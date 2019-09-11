@@ -10,10 +10,10 @@ import (
 	"github.com/omniboost/go-hogia"
 )
 
-func TestAccountingItemsFile(t *testing.T) {
+func TestAccountingItemsSection(t *testing.T) {
 	var b bytes.Buffer
 
-	f := hogia.AccountingItemsFile{
+	f := hogia.AccountingItemsSection{
 		Header: hogia.Header{
 			Rubrik:     "Bokföringsorder",
 			DateFormat: "YYYY-MM-DD",
