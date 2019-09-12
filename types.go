@@ -48,10 +48,10 @@ type IntBool bool
 
 func (b IntBool) String() string {
 	if b {
-		return "0"
+		return "-1"
 	}
 
-	return "-1"
+	return "0"
 }
 
 type Amount float64
@@ -123,4 +123,10 @@ func (i IntOpt) String() string {
 	}
 
 	return fmt.Sprint(int(i))
+}
+
+type Reserved string
+
+func (r Reserved) String() string {
+	return string(r)
 }

@@ -137,7 +137,7 @@ type InvoiceHeader struct {
 	ThirdParty    *IntBool
 	EUInvoice     *IntBool
 	// Length: 2
-	Reserved string
+	Reserved1 Reserved
 	// If left out picked up from customer
 	// Length: 3
 	Currency string
