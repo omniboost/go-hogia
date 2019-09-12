@@ -8,7 +8,7 @@ type InvoicesSection struct {
 	Invoices
 }
 
-func (s *InvoicesSection) MarshalCSV() ([][]string, error) {
+func (s InvoicesSection) MarshalCSV() ([][]string, error) {
 	ss := [][]string{}
 
 	tmp, err := s.Header.MarshalCSV()

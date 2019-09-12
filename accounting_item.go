@@ -9,7 +9,7 @@ type AccountingItemsSection struct {
 	AccountingItemsFooter AccountingItemsFooter
 }
 
-func (f *AccountingItemsSection) MarshalCSV() ([][]string, error) {
+func (f AccountingItemsSection) MarshalCSV() ([][]string, error) {
 	ss := [][]string{}
 
 	tmp, err := f.Header.MarshalCSV()

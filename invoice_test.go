@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/csv"
+	"encoding/json"
+	"log"
 	"testing"
 	"time"
 
@@ -96,6 +98,9 @@ Kundreskontra-Slut
 	if err != nil {
 		t.Error()
 	}
+
+	b2, _ := json.MarshalIndent(s, "", "  ")
+	log.Fatal(string(b2))
 
 	w := csv.NewWriter(bufio.NewWriter(&b))
 	w.Comma = '\t'
