@@ -1,6 +1,7 @@
 package hogia
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -10,8 +11,37 @@ type Date struct {
 	time.Time
 }
 
+func (d Date) MarshalJSON() ([]byte, error) {
+	if d.IsZero() {
+		return json.Marshal("")
+	}
+	return json.Marshal(d.Format("2006-01-02"))
+}
+
 func (d Date) String() string {
 	return d.Format("2006-01-02")
+}
+
+func (d *Date) UnmarshalJSON(data []byte) (err error) {
+	var value string
+	err = json.Unmarshal(data, &value)
+	if err != nil {
+		return err
+	}
+
+	if value == "" {
+		return nil
+	}
+
+	// first try standard date
+	d.Time, err = time.Parse(time.RFC3339, value)
+	if err == nil {
+		return nil
+	}
+
+	// try iso8601 date format
+	d.Time, err = time.Parse("2006-01-02", value)
+	return err
 }
 
 type IntBool bool
