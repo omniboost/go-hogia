@@ -48,6 +48,10 @@ type InvoicesHeader struct {
 }
 
 func (h InvoicesHeader) MarshalCSV() ([][]string, error) {
+	if h.Text == "" {
+		return [][]string{}, nil
+	}
+
 	return [][]string{
 		[]string{
 			"KUNDRESK",
