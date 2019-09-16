@@ -42,7 +42,7 @@ type ContactsHeader struct {
 
 func (h ContactsHeader) MarshalCSV() ([][]string, error) {
 	if h.Text == "" {
-		return [][]string{}
+		return [][]string{}, nil
 	}
 
 	return [][]string{

@@ -5,7 +5,8 @@ import "fmt"
 type InvoicesSection struct {
 	Header         Header
 	InvoicesHeader InvoicesHeader
-	Invoices
+	Contacts       Contacts
+	Invoices       Invoices
 }
 
 func (s InvoicesSection) MarshalCSV() ([][]string, error) {
@@ -18,6 +19,12 @@ func (s InvoicesSection) MarshalCSV() ([][]string, error) {
 	}
 
 	tmp, err = s.InvoicesHeader.MarshalCSV()
+	ss = append(ss, tmp...)
+	if err != nil {
+		return ss, err
+	}
+
+	tmp, err = s.Contacts.MarshalCSV()
 	ss = append(ss, tmp...)
 	if err != nil {
 		return ss, err
