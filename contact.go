@@ -33,7 +33,7 @@ func (s ContactsSection) MarshalCSV() ([][]string, error) {
 }
 
 type ContactsHeader struct {
-	// “KUNDRESK”, fixed text
+	// “Kontakt”, fixed text
 	// Mandatory
 	PostType    string
 	Text        string
@@ -41,6 +41,10 @@ type ContactsHeader struct {
 }
 
 func (h ContactsHeader) MarshalCSV() ([][]string, error) {
+	if h.Text == "" {
+		return [][]string{}
+	}
+
 	return [][]string{
 		[]string{
 			"Kontakt",
