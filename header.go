@@ -6,8 +6,15 @@ type Header struct {
 }
 
 func (h *Header) MarshalCSV() ([][]string, error) {
-	return [][]string{
-		[]string{"Rubrik", h.Rubrik},
-		[]string{"Datumformat", h.DateFormat},
-	}, nil
+	s := [][]string{}
+
+	if h.Rubrik != "" {
+		s = append(s, []string{"Rubrik", h.Rubrik})
+	}
+
+	if h.DateFormat != "" {
+		s = append(s, []string{"DatumFormat", h.DateFormat})
+	}
+
+	return s, nil
 }
