@@ -9,11 +9,11 @@ func (h *Header) MarshalCSV() ([][]string, error) {
 	s := [][]string{}
 
 	if h.Rubrik != "" {
-		s = append(s, []string{"Rubrik", h.Rubrik})
+		s = append(s, []string{"RUBRIK", h.Rubrik})
 	}
 
 	if h.DateFormat != "" {
-		s = append(s, []string{"DatumFormat", h.DateFormat})
+		s = append(s, []string{"DATUMFORMAT", h.DateFormat})
 	}
 
 	return s, nil
