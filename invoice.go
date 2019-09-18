@@ -172,7 +172,7 @@ func (h InvoiceHeader) MarshalCSV() ([][]string, error) {
 		[]string{
 			"KUNDRESKONTRA",
 			h.InvoiceNumber,
-			h.CustomerNumber,
+			fmt.Sprintf("%-20s", h.CustomerNumber),
 			h.InvoiceDate.String(),
 			h.ExpiryDate.String(),
 			h.OriginalInvoice,
