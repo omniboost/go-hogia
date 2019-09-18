@@ -262,7 +262,7 @@ type InvoiceFooter struct{}
 
 func (f *InvoiceFooter) MarshalCSV() ([][]string, error) {
 	return [][]string{
-		[]string{"Kundreskontra-Slut"},
+		[]string{"KUNDRESKONTRA-SLUT"},
 	}, nil
 }
 
