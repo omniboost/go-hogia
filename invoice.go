@@ -170,7 +170,7 @@ type InvoiceHeader struct {
 func (h InvoiceHeader) MarshalCSV() ([][]string, error) {
 	return [][]string{
 		[]string{
-			"Kundreskontra",
+			"KUNDRESKONTRA",
 			h.InvoiceNumber,
 			h.CustomerNumber,
 			h.InvoiceDate.String(),
@@ -244,7 +244,7 @@ type InvoiceItem struct {
 func (i InvoiceItem) MarshalCSV() ([][]string, error) {
 	return [][]string{
 		[]string{
-			"Kontering",
+			"KONTERING",
 			i.Account,
 			i.Amount.String(),
 			fmt.Sprint(i.Quantity),

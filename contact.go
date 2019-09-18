@@ -47,7 +47,7 @@ func (h ContactsHeader) MarshalCSV() ([][]string, error) {
 
 	return [][]string{
 		[]string{
-			"Kontakt",
+			"KONTAKT",
 			h.Text,
 			h.VoucherDate.String(),
 		},
@@ -157,7 +157,7 @@ type Kontakt struct {
 func (k Kontakt) MarshalCSV() ([][]string, error) {
 	return [][]string{
 		[]string{
-			"Kontakt",
+			"KONTAKT",
 			fmt.Sprint(k.Updates),
 			k.ContactNumber,
 			k.Name,
@@ -295,7 +295,7 @@ type Kund struct {
 func (k Kund) MarshalCSV() ([][]string, error) {
 	return [][]string{
 		[]string{
-			"Kund",
+			"KUND",
 			fmt.Sprint(k.Updates),
 			k.ContactNumber,
 			k.Claim.String(),
